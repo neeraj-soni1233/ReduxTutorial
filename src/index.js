@@ -3,18 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore ,applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
 import reducer from './reducer/reducer';
+import thunk from 'redux-thunk'
 
-/* setep 1 central store is created and 
-pass reducer is arg we tell name of the object 
-which willl be used to update the data into store
-and set provider into ReactDOM
-*/
+const store = createStore(reducer,applyMiddleware(thunk))
 
-const store = createStore(reducer)
-ReactDOM.render(<Provider store={store}>
+ReactDOM.render(<Provider store = {store}>
   <React.StrictMode>
     <App />
   </React.StrictMode></Provider>,

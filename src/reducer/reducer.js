@@ -1,17 +1,15 @@
 
-const iState = {
+const iState ={
     name: "Neeraj Soni",
-    Tech: ['Swift', 'Java Script', 'React Native']
+    Tech:['Swift','Java Script','React Native']
 }
 
+const reducer = (state =iState,action) => {
 
-// reducer  is use to update data into central store (which is created into index) 
-const reducer = (state = iState, action) => {
-
-    if (action.type == 'CHANGE_NAME') {
-        return {
-            ...state, // spread operator
-            name: action.payload
+    if (action.type =='CHANGE_NAME'){
+        return{
+            ...state,
+            name:action.payload
         }
     }
     return state
